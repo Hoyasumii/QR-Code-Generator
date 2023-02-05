@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #1A202C;
+}
+
+body {
+    background-color: #E2EAFC;
+
+}
+
+header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background-color: #E2EAFC;
+}
+
+header h1 {
+    font-size: 4em;
+}
+
+main {
+    background-color: #EDF2FB;
+    box-shadow: 0px -1px 5px #D7E3FC;
+    border-radius: 15px 15px 0px 0px;
+    height: 80vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#main-form {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 15px;
+    user-select: none;
+    padding: 5vh 0;
+}
+
+#input-area {
+    background-color: #E2EAFC;
+    box-shadow: 1px 1px 5px #CCDBFD;
+    padding: 10px 25px;
+    display: flex;
+    position: relative;
+    width: fit-content;
+    border-radius: 15px;
+    width: 40vw;
+    transition: 0.4s background-color;
+}
+
+#input-area:hover, #input-area:focus-within {
+    background-color: #D7E3FC;
+}
+
+#input-area label {
+    position: absolute;
+    font-weight: bold;
+    top: 10px;
+    left: 25px;
+    transition: 0.4s top;
+}
+
+#input-area label:hover {
+    cursor: text;
+}
+
+#input-area input:focus + label {
+    top: -10px;
+}
+
+#input-area input {
+    outline: none;
+    font-size: 1em;
+    background-color: inherit;
+    min-width: 100%;
+}
+
+#main-form button {
+    background-color: #D7E3FC;
+    box-shadow: 1px 1px 5px #CCDBFD;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 0.4s background-color;
+}
+
+#main-form button:hover {
+    background-color: #C1D3FE;
+    cursor: pointer;
+}
+
+#main-form button:active {
+    background-color: #CCDBFD;
+}
+
+#qr-code-area {
+    border-radius: 25px;
+    box-shadow: 1px 1px 5px #E2EAFC;
+    user-select: none;
+}
+
+@media (orientation: portrait) {
+    
+}
