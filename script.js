@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const linkParam = urlParams.get("link");
 
-if (linkParam != null && (linkParam.includes("http://") || linkParam.includes("https://"))) {
+if (linkParam != null) {
     document.getElementById("qr-code-anchor").href = linkParam;
     document.getElementById("qr-code-area").src = "https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=" + linkParam;
 }
