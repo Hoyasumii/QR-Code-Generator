@@ -1,5 +1,5 @@
 import { getLanguage, getLocation } from "@/services";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware() {
   const location = await getLocation();
