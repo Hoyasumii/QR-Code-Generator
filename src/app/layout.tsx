@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import Navbar from "@/components/ui/Navbar";
 import Link from "next/link";
 import { ClockHistory, Github } from "@/components/Svg";
+import { HTML } from "@/components";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const requestHeaders = await headers();
@@ -26,6 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
 				url: `${process.env.BASE_URL}/og-cover.webp`,
 			},
 		},
+		keywords: ["Alan Reis", "Alan", "QRCode", "qr"],
 	};
 }
 
@@ -35,9 +37,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<HTML>
 			<body
-				className={`${GeistSans.className} bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-200 antialiased bg-[url("/dot-w.webp")] dark:bg-[url("/dot-d.webp")] bg-repeat bg-[length:32px] flex flex-col items-center min-h-svh max-w-svw relative`}
+				className={`${GeistSans.className} data-[dark=true]:scheme-dark bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-200 antialiased bg-[url("/dot-w.webp")] dark:bg-[url("/dot-d.webp")] bg-repeat bg-[length:32px] flex flex-col items-center min-h-svh max-w-svw relative`}
 			>
 				<Navbar.Root>
 					<Navbar.Text>
@@ -61,6 +63,6 @@ export default function RootLayout({
 				</Navbar.Root>
 				{children}
 			</body>
-		</html>
+		</HTML>
 	);
 }
