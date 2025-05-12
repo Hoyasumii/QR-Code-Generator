@@ -1,0 +1,19 @@
+import Link from "next/link";
+import { DarkLogo, LightLogo } from "@/components/Svg";
+
+export function Root({ children }: { children: React.ReactNode }) {
+	return (
+		<header className="px-4 py-3 bg-stone-50 dark:bg-stone-950 sticky top-0 flex items-center xs:items-stretch border-b-[0.5px] border-stone-200 dark:border-stone-800 text-inherit">
+			<Link
+				href={"/"}
+				className="text-left border-r-[0.5px] pe-4 border-stone-300 dark:border-stone-700"
+			>
+				<DarkLogo className="not-dark:hidden size-8 opacity-50 rounded-full" />
+				<LightLogo className="dark:hidden size-8 opacity-75 rounded-full" />
+			</Link>
+			<nav className="flex min-h-full divide-x divide-stone-800 *:px-4 xs:border-r border-stone-800">
+				{children}
+			</nav>
+		</header>
+	);
+}
