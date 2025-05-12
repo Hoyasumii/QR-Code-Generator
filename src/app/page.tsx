@@ -26,7 +26,7 @@ export default function Home() {
 				</h1>
 			</div>
 
-			<div className="w-full border bg-stone-950/20 backdrop-blur-xs border-stone-50/20 has-focus:border-stone-50/40 has-focus:ring-2 ring-sky-700/40 text-stone-200 p-2 rounded-md transition flex gap-2 divide-x divide-stone-500 *:pe-2 items-center">
+			<div className="w-full border bg-stone-50 dark:bg-stone-950/20 backdrop-blur-xs border-stone-950/20 dark:border-stone-50/20 has-focus:border-stone-950/40 dark:has-focus:border-stone-50/40 has-focus:ring-2 ring-sky-200/60 dark:ring-sky-700/40 text-stone-800 dark:text-stone-200 p-2 rounded-md transition flex gap-2 divide-x divide-stone-950/20 dark:divide-stone-500 *:pe-2 items-center">
 				<Link className="size-7 text-stone-500" />
 				<input
 					id="url"
@@ -34,7 +34,7 @@ export default function Home() {
 					value={urlContent}
 					onChange={handleUpdateUrlContent}
 					autoComplete="off"
-					className="outline-0 w-full placeholder-stone-600"
+					className="outline-0 w-full placeholder-stone-400 dark:placeholder-stone-600"
 					placeholder="Coloque o Link"
 				/>
 			</div>

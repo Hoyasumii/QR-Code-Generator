@@ -51,17 +51,11 @@ export default function RootLayout({
 						</Link>
 					</Navbar.Text>
 					<div className="flex-1 flex flex-row-reverse items-center justify-start gap-4">
-						<Link
-							href={"https://github.com/Hoyasumii/qrcode-gen"}
-							target="_blank"
-						>
-							<Github className="cursor-pointer transition duration-300 text-stone-300 hover:text-stone-200 size-6" />
+						<Link href={process.env.REPO_URL} target="_blank">
+							<Github className="cursor-pointer transition duration-300 dark:text-stone-300 dark:hover:text-stone-200 size-6" />
 						</Link>
-						<Link
-							href={`${process.env.BASE_URL}/index.html`}
-							target="_blank"
-						>
-							<ClockHistory className="cursor-pointer transition duration-300 text-stone-300 hover:text-stone-200 size-6" />
+						<Link href={`${process.env.BASE_URL}/index.html`} target="_blank">
+							<ClockHistory className="cursor-pointer transition duration-300 dark:text-stone-300 dark:hover:text-stone-200 size-6" />
 						</Link>
 					</div>
 				</Navbar.Root>
