@@ -3,7 +3,7 @@ import { DarkLogo, LightLogo } from "@/components/Svg";
 
 export function Root({ children }: { children: React.ReactNode }) {
 	return (
-		<header className="px-4 py-3 bg-stone-50 dark:bg-stone-950 sticky top-0 flex items-center xs:items-stretch border-b-[0.5px] border-stone-200 dark:border-stone-800 text-inherit">
+		<header className="px-4 py-3 bg-stone-50 dark:bg-stone-950 sticky top-0 flex items-center xs:items-stretch border-b-[0.5px] border-stone-200 dark:border-stone-800 text-inherit w-full">
 			<Link
 				href={"/"}
 				className="text-left border-r-[0.5px] pe-4 border-stone-300 dark:border-stone-700"

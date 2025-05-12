@@ -1,3 +1,54 @@
+"use client";
+
+import { generateQrCode } from "@/services";
+import { useState } from "react";
+import { Link } from "lucide-react";
+
 export default function Home() {
-	return <main className="flex-1 px-40">Hello World</main>;
+	const [urlContent, setUrlContent] = useState<string>("");
+	const [qrCode, setQrCode] = useState<[string, string]>(["", ""]);
+
+	const handleUpdateUrlContent = async (
+		e: React.ChangeEvent<HTMLInputElement>,
+	) => {
+		const value = e.target.value;
+
+		setUrlContent(value);
+
+		setQrCode(await generateQrCode(value));
+	};
+
+	return (
+		<main className="flex-1 pt-12 sm:pt-16 w-11/12 sm:w-8/12 md:w-4/12 flex flex-col gap-8 items-center">
+			<div className="w-full pb-4 border-b-[0.5px] border-stone-700/50 relative flex justify-center">
+				<h1 className="font-black uppercase text-3xl sm:text-4xl">
+					Crie seus QR Codes!
+				</h1>
+			</div>
+
+			<div className="w-full border bg-stone-950/20 backdrop-blur-xs border-stone-50/20 has-focus:border-stone-50/40 has-focus:ring-2 ring-sky-700/40 text-stone-200 p-2 rounded-md transition flex gap-2 divide-x divide-stone-500 *:pe-2 items-center">
+				<Link className="size-7 text-stone-500" />
+				<input
+					id="url"
+					type="text"
+					value={urlContent}
+					onChange={handleUpdateUrlContent}
+					autoComplete="off"
+					className="outline-0 w-full placeholder-stone-600"
+					placeholder="Coloque o Link"
+				/>
+			</div>
+
+			{urlContent.length > 0 && qrCode[0].length > 0 && (
+				<>
+					<img
+						src={qrCode[0]}
+						alt="QR Code"
+						className="not-dark:hidden size-80"
+					/>
+					<img src={qrCode[1]} alt="QR Code" className="dark:hidden size-80" />
+				</>
+			)}
+		</main>
+	);
 }

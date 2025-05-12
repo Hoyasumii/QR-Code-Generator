@@ -36,7 +36,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${GeistSans.className} bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-200 antialiased bg-[url("/dot-w.webp")] dark:bg-[url("/dot-d.webp")] bg-repeat bg-[length:32px] flex flex-col min-h-svh max-w-svw relative`}
+				className={`${GeistSans.className} bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-200 antialiased bg-[url("/dot-w.webp")] dark:bg-[url("/dot-d.webp")] bg-repeat bg-[length:32px] flex flex-col items-center min-h-svh max-w-svw relative`}
 			>
 				<Navbar.Root>
 					<Navbar.Text>
