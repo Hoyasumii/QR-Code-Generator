@@ -1,11 +1,24 @@
-const urlParams = new URLSearchParams(window.location.search);
-const linkParam = urlParams.get("link");
+async function start() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const linkParam = urlParams.get("link");
 
-if (linkParam != null) {
-  document.getElementById("qr-code-anchor").href = linkParam;
-  document.getElementById("qr-code-area").src =
-    `https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=${linkParam}`;
+  if (linkParam != null) {
+    document.getElementById("qr-code-anchor").href = linkParam;
+    document.getElementById("qr-code-area").src = await QRCode.toDataURL(
+      linkParam,
+      {
+        type: "image/webp",
+        margin: 1,
+        rendererOpts: {
+          quality: 1,
+        },
+        scale: 10,
+      }
+    );
+  }
 }
+
+start();
 
 const inputArea = document.getElementById("input-area");
 const inputAreaInput = inputArea.getElementsByTagName("input")[0];
