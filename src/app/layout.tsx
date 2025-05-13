@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { headers } from "next/headers";
-import { pickDictionary } from "@/services";
-import { GeistSans } from "geist/font/sans";
-import Navbar from "@/components/ui/Navbar";
 import Link from "next/link";
-import { ClockHistory, Github } from "@/components/Svg";
-import { HTML } from "@/components";
+import { headers } from "next/headers";
+
+import "./globals.css";
+import { pickDictionary } from "@/services";
+
+import { ToggleTheme } from "@/components";
+import { Body, Button, HTML, Navbar } from "@/components/ui";
+import { ClockHistory, Github } from "@/components/svg";
+import { Suspense } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const requestHeaders = await headers();
@@ -17,9 +19,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 	return {
 		title,
+		metadataBase: new URL(process.env.BASE_URL),
 		description,
 		openGraph: {
 			type: "website",
+			siteName: title,
+			url: new URL(process.env.BASE_URL),
 			locale: "pt-BR",
 			title,
 			description,
@@ -37,32 +42,40 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<HTML>
-			<body
-				className={`${GeistSans.className} data-[dark=true]:scheme-dark bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-200 antialiased bg-[url("/dot-w.webp")] dark:bg-[url("/dot-d.webp")] bg-repeat bg-[length:32px] flex flex-col items-center min-h-svh max-w-svw relative`}
-			>
-				<Navbar.Root>
-					<Navbar.Text>
-						Made by{" "}
-						<Link
-							href={process.env.OWNER_SITE_URL}
-							className="font-bold hover:underline"
-							target="_blank"
-						>
-							Alan Reis
-						</Link>
-					</Navbar.Text>
-					<div className="flex-1 flex flex-row-reverse items-center justify-start gap-4">
-						<Link href={process.env.REPO_URL} target="_blank">
-							<Github className="cursor-pointer transition duration-300 dark:text-stone-300 dark:hover:text-stone-200 size-6" />
-						</Link>
-						<Link href={`${process.env.BASE_URL}/index.html`} target="_blank">
-							<ClockHistory className="cursor-pointer transition duration-300 dark:text-stone-300 dark:hover:text-stone-200 size-6" />
-						</Link>
-					</div>
-				</Navbar.Root>
-				{children}
-			</body>
-		</HTML>
+		<Suspense>
+			<HTML>
+				<Body>
+					<Navbar.Root>
+						<Navbar.Text>
+							Made by{" "}
+							<Link
+								href={process.env.OWNER_SITE_URL}
+								className="font-bold hover:underline"
+								target="_blank"
+							>
+								Alan Reis
+							</Link>
+						</Navbar.Text>
+						<div className="flex-1 flex flex-row-reverse items-center justify-start gap-2">
+							<Button>
+								<Link href={process.env.REPO_URL} target="_blank">
+									<Github className="cursor-pointer transition duration-300 dark:text-stone-300 dark:hover:text-stone-200 size-6" />
+								</Link>
+							</Button>
+							<Button>
+								<Link
+									href={`${process.env.BASE_URL}/index.html`}
+									target="_blank"
+								>
+									<ClockHistory className="cursor-pointer transition duration-300 dark:text-stone-300 dark:hover:text-stone-200 size-6" />
+								</Link>
+							</Button>
+							<ToggleTheme />
+						</div>
+					</Navbar.Root>
+					{children}
+				</Body>
+			</HTML>
+		</Suspense>
 	);
 }
