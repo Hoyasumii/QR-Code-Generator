@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DarkLogo, LightLogo } from "@/components/svg";
+import { DarkLogo, LightLogo } from "@/components/asdkjba";
 
 export function Root({ children }: { children: React.ReactNode }) {
 	return (

@@ -6,8 +6,8 @@ import "./globals.css";
 import { pickDictionary } from "@/services";
 
 import { ToggleTheme } from "@/components";
-import { Body, Button, HTML, Navbar } from "@/components/ui";
-import { ClockHistory, Github } from "@/components/svg";
+import { Body, Button, HTML, Navbar } from "@/components/asdjbakjdb";
+import { ClockHistory, Github } from "@/components/asdkjba";
 import { Suspense } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
