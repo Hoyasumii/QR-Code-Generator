@@ -2,10 +2,6 @@ import type { NextConfig } from "next";
 import path from "node:path";
 
 const nextConfig: NextConfig = {
-  webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
-    return config;
-  },
   env: {
     BASE_URL: process.env.BASE_URL,
     LOCATION_API_URL: process.env.LOCATION_API_URL,
