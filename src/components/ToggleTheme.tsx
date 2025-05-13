@@ -2,24 +2,19 @@
 
 import { Moon, Sun } from "lucide-react";
 import { Button } from "./ui";
+import { useContext } from "react";
+import { ThemeContext } from "./ui/ThemeContext";
 
 export function ToggleTheme() {
+	const themeContext = useContext(ThemeContext);
+
 	return (
 		<Button
 			onClick={() => {
 				const theme = localStorage.getItem("theme");
 
-				if (!theme) {
-					const prefersDark = window.matchMedia(
-						"(prefers-color-scheme: dark)",
-					).matches;
-
-					localStorage.setItem("theme", prefersDark ? "dark" : "light");
-					window.location.reload();
-				}
-
 				localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
-				window.location.reload();
+				themeContext?.setTheme(theme === "dark" ? undefined : "dark");
 			}}
 		>
 			<Sun className="dark:hidden size-6" />
